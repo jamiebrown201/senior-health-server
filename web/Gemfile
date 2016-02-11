@@ -36,7 +36,7 @@ gem 'devise'
 
 gem 'omniauth-fitbit-oauth2'
 
-gem 'fitgem_oauth2', path: "../gem-custom/fitgem_oauth2"
+gem 'fitgem_oauth2', path: "/vendor/fitgem_oauth2"
 
 gem 'active_model_serializers'
 
