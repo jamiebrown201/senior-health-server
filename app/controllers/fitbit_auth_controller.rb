@@ -16,13 +16,14 @@ class FitbitAuthController < ApplicationController
   end
 
   private
-# this is the information we're sending to fitbit
+  # this is the information we're sending to fitbit
   def get_user_activities(data)
     fitbit_user_id = data['uid']
     user_secret = data['credentials']['secret']
     user_token = data['credentials']['token']
 
     client = Fitgem::Client.new({
+      # client_id: '',
       consumer_key: '',
       consumer_secret: '',
       token: user_token,
@@ -33,6 +34,6 @@ class FitbitAuthController < ApplicationController
     access_token = client.reconnect(user_token, user_secret)
 
     # specifies date range to request data from
-    client.data_by_time_range('/activities/log/steps', { base_date: "2016-02-09", period: '1d' })
+    client.activities
   end
 end
